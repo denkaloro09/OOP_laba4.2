@@ -37,6 +37,9 @@
             this.tbar1 = new System.Windows.Forms.TrackBar();
             this.tbar2 = new System.Windows.Forms.TrackBar();
             this.tbar3 = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nud1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud3)).BeginInit();
@@ -120,11 +123,44 @@
             this.tbar3.TabIndex = 8;
             this.tbar3.Scroll += new System.EventHandler(this.tbar3_Scroll);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(39, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 42);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "A";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(190, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 42);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "B";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(344, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 42);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "C";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(490, 243);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tbar3);
             this.Controls.Add(this.tbar2);
             this.Controls.Add(this.tbar1);
@@ -159,6 +195,9 @@
         private System.Windows.Forms.TrackBar tbar1;
         private System.Windows.Forms.TrackBar tbar2;
         private System.Windows.Forms.TrackBar tbar3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

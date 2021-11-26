@@ -12,14 +12,14 @@ namespace Laba4_2oop
 {
     public partial class Form1 : Form
     {
-        Model model;       
+        Model model; //объект модели      
         public Form1()
         {
             InitializeComponent();            
-            model = new Model();           
-            model.observers += new System.EventHandler(this.UpdateFromModel);
+            model = new Model();  //создание модели         
+            model.observers += new System.EventHandler(this.UpdateFromModel); //метод для обработки событий
         }        
-        private void UpdateFromModel(object sender, EventArgs e) 
+        private void UpdateFromModel(object sender, EventArgs e) //метод для изменения значений в форме
         {
             //для А и С
             tb1.Text = model.getValueA().ToString();
@@ -33,8 +33,7 @@ namespace Laba4_2oop
             nud2.Value = model.getValueB();
             tbar2.Value = model.getValueB();
         }
-
-        private void nud1_ValueChanged(object sender, EventArgs e)
+        private void nud1_ValueChanged(object sender, EventArgs e) //далее идут обработчики событий для компонентов
         {
             model.setValueA(Decimal.ToInt32(nud1.Value));
         }
@@ -81,14 +80,14 @@ namespace Laba4_2oop
         {
             model.setValueB(tbar2.Value);
         }
-        protected override void OnClosing(CancelEventArgs e)
+        protected override void OnClosing(CancelEventArgs e) //сохранение данных при выключении программы
         {
             Properties.Settings.Default.valueA = model.getValueA();
             Properties.Settings.Default.valueB = model.getValueB();
             Properties.Settings.Default.valueC = model.getValueC();
             Properties.Settings.Default.Save();
         }
-        private void LoadSettings()
+        private void LoadSettings() //выгрузка данных из Settings
         {
             tb1.Text = Properties.Settings.Default.valueA.ToString();
             nud1.Value = Properties.Settings.Default.valueA;
@@ -103,16 +102,16 @@ namespace Laba4_2oop
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            LoadSettings();
+            LoadSettings(); //выгрузка происходит при загрузке программы
         }
     }
-    public class Model
+    public class Model //собственно модель
     {
-        private int valueA;
+        private int valueA; //три нужных числа
         private int valueB;
         private int valueC;
         public System.EventHandler observers;
-        public int getValueA() 
+        public int getValueA() //методы для получения чисел
         {
             return valueA;
         }
@@ -124,7 +123,7 @@ namespace Laba4_2oop
         {
             return valueC;
         }
-        public void setValueA(int _value) 
+        public void setValueA(int _value) //изменение числа А
         {
             if (_value > 0 && _value < 100) //если _value от нуля до ста
             {
@@ -143,20 +142,20 @@ namespace Laba4_2oop
                     valueB = _value; // и B
                 }
             } 
-            else if (_value > 100) //если же _value больше ста
+            else if (_value >= 100) //если же _value больше ста
             {
 
                 valueA = 100; //тогда наверное так
                 valueC = 100;
                 valueB = 100;
             }
-            else if (_value < 0) //если меньше нуля
+            else if (_value <= 0) //если меньше нуля
             {
                 valueA = 0; //тогда А = 0
             }
             observers.Invoke(this,null);
         }
-        public void setValueC(int _value)
+        public void setValueC(int _value) //изменение числа C
         {
             if (_value > 0 && _value < 100) //если от нуля до ста
             {
@@ -176,11 +175,11 @@ namespace Laba4_2oop
                 }
                 
             }
-            else if (_value > 100)
+            else if (_value >= 100)
             {
                 valueC = 100;
             }
-            else if (_value < 0)
+            else if (_value <= 0)
             {
                 valueC = 0;
                 valueB = 0;
@@ -188,7 +187,7 @@ namespace Laba4_2oop
             }
             observers.Invoke(this, null);
         }
-        public void setValueB(int _value)
+        public void setValueB(int _value) //изменение числа B
         {
             if (_value >= valueA && _value <= valueC) //если больше или равно А и меньше или равно С
             {
